@@ -10,10 +10,12 @@ The green board gets its power from two pins near the JTag connector.  3.5 volts
 
 ##Blue Board
 
-The blue board is the ADC board.  It comes with an ADC from Texes Instruments.  (Part Number: ADC08D1020)  This ADC can sample two different channels at 1 gsps, or it can sampel just one channel at double the speed.  For this project I am using the second mode to achieve a sample rate of about 1.5 gsps.  I could go further, but the FPGA has limitations that prevent me from doing so.  
+The blue board is the ADC board.  It comes with an ADC from Texes Instruments.  (Part Number: ADC081000)  Please note that this is NOT the adc that is labeled on the schematics for the blue board.  When the blue board was populated we didn't have the right ADC so we put a different one on  The ADC can sample at up to 1.6 gsps.  
 
 The blue board gets its power from the green board.  No  extra connections need to be made.  
 
 ##Schematics
 
-Take a look trough the schematics in the schematics file.  There should be a set for both the blue and green boards.  I would recommend getting familiar with the main components.  The FPGA and ADC are the biggest things on each schematic.  
+Take a look trough the schematics in the schematics file.  There should be a set for both the blue and green boards.  I would recommend getting familiar with the main components.  The FPGA and ADC are the biggest things on each schematic.  Most of the connectors and ports on the circuit board can be found in the schematic by looking up the connector label.  
+
+It is important to note that we have the 2nd edition green board and only the first edition blue board. If you get blue board v2 schematics they won't match up properly.  
