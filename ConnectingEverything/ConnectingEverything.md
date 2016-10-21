@@ -12,13 +12,15 @@ The default IP address for the ethernet module is 192.168.133.2 .  To connect to
 
 ## Ping Test
 
-Now we will try to connect to the captan board to verify that everything is working well.  
+Now we will try to connect to the captan board to verify that everything is working well.  Please note that the ping test will only work if you have the right firmware currently running on the Captan board.  If no one else has downloaded the software, you will have to do it before you can try pinging the board.  
 
 First, open Wireshark and start monitoring the connection with your captan board.  This will let us see everything being sent and received to the board.  Next, open the command line and type `ping 192.168.133.2` .  If you get a response, the board is working and you can connect to it. Go ahead and look at Wireshark.  You can see the ping requests and the responses from the captan board.
 
+If the ping test does not work, check your connections and IP addresses.  If that does not work, the next thing to try is flashing the firmware to the FPGA.  
+
 ##Setting up the Control Software
 
-Now that we can connect to the captan board, we need to set up the control software which makes it easier to control the captan board.  The windows software can be downloaded from the firs resource link below.  
+Now that we can connect to the captan board, we need to set up the control software which makes it easier to control the captan board.  The windows software can be downloaded from the resources folder.  
 
 The software comes in three parts: captan master, captan controller, and captan gui.  This makes it easy to control multiple captan boards on multiple computers all on the same network.  They each need to be started in order with different settings.  I will walk you through them here.  
 
@@ -49,14 +51,13 @@ If the connections return errors, double check the addresses and make sure that 
 
 #### Setting Registers
 
-Alright, we have all that setup done.  Let's set some registers.  Go to the web address for the address space. It's the third resource at the bottom of the page.  This defines the address space in the ethernet module and says what each register does.  Now, open wireshark so we can see what's going on behind the scenes.  Once everything is setup, we are going to read from the version register.  On the address space page, it's the second to last one with the field name "ETH_INTERFACE_VERSION".  We see that it is in block one at address 64.  To read from this register, go to the captan gui application.  On the right side of the page in the Basic Commands tab under CAPTAN Controls there is a an address field.  Type in the block number and the address so it says "0000000100000064".  Click Read.  In the console window it should say the data that was read from the captan board.  Open wireshark and look at the recent transmissions.  There should be two UDP packages in addition to all the other stuff.  One should be from your computer to the captan board, the other from the captan board to the computer.  If you open these and look at the data, you will see what was transmitted to the board and what it sent back.  
+Alright, we have all that setup done.  Let's set some registers.  Go to the web resource for the address space. It's the second resource at the bottom of the page.  This defines the address space in the ethernet module and says what each register does.  Now, open wireshark so we can see what's going on behind the scenes.  Once everything is setup, we are going to read from the version register.  On the address space page, it's the second to last one with the field name "ETH_INTERFACE_VERSION".  We see that it is in block one at address 64.  To read from this register, go to the captan gui application.  On the right side of the page in the Basic Commands tab under CAPTAN Controls there is a an address field.  Type in the block number and the address so it says "0000000100000064".  Click Read.  In the console window, it should print the data that was read from the captan board.  Open wireshark and look at the recent transmissions.  There should be two UDP packages in addition to all the other stuff.  One should be from your computer to the captan board, the other from the captan board to the computer.  If you open these and look at the data, you will see what was transmitted to the board and what it sent back.  
 
 Now, we are going to set the burst_mode register and read it back.  Change the address to reflect this register "0000000100000064" and put 1 in the data field.  Write the value and then read it back.  In the console you should receive a one back.  Change the one back to a zero and repeat the process and the register should change back to a zero.  
 
 ### Resources
 
-1. Windows Software: http://www-ese.fnal.gov/dig_test_stand/tmp/captan_software_1_8_1.zip
-2. OtS Ethernet Interface User's Guide:  https://docs.google.com/document/d/1i3Z07n8Jq78NwgUFdjAv2sLGhH4rWjHeYEScAWBzSyw/edit
-3. OtS Interface Address Space:  http://otsdaq.fnal.gov/docs/oei_address_space.html
+1. OtS Ethernet Interface User's Guide:  https://docs.google.com/document/d/1i3Z07n8Jq78NwgUFdjAv2sLGhH4rWjHeYEScAWBzSyw/edit
+2. OtS Interface Address Space:  http://otsdaq.fnal.gov/docs/oei_address_space.html
 
 
