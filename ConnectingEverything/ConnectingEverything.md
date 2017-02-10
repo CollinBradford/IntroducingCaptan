@@ -4,15 +4,15 @@ In this tutorial we will begin learning how to interface with our FPGA through t
 
 ##Setting Everything Up  
 
-To start out, we need to power up the board and ping it.  The powering part is pretty basic.  3.3v to the power connector near the JTag connector.  Keep in mind that the basic project runs at around 3 amps so not any simple power supply will work.  Once it is powered, hit the reset button.  The lights on the physical ethernet chip should light up.  This will tell you that the board is powered properly and turned on.  
+To start out, we need to power up the board and ping it.  The powering part is pretty basic.  3.3v to the power connector near the JTag connector.  Keep in mind that the basic project runs at around 3 amps so not any simple power supply will work.  Once the board is powered, some of the lights on the ethernet interface chip should light up.  
 
 ## Connecting to the Board
 
-The default IP address for the ethernet module is 192.168.133.2 .  To connect to the board, we need to verify that we have the right settings for our computer.  To check these, go to: Network and Sharing Center => [network with captan] => properties => select IPv4 => properties.  The IP address in the IP address field should be something like: 192.168.133.199 . You can choose the last number just as long as it isn't 2.  The subnet mask should be set to 255.255.255.0 . Once everything is right, click OK.  
+The default IP address for the ethernet module is 192.168.133.2 .  To connect to the board, we need to verify that we have the right settings for our computer.  To check these, go to: Network and Sharing Center => \<network with captan\> => properties => select IPv4 => properties.  The IP address in the IP address field should be something like: 192.168.133.199 . You can choose the last number just as long as it isn't 2.  The subnet mask should be set to 255.255.255.0 . Once everything is right, click OK.  
 
 ## Ping Test
 
-Now we will try to connect to the captan board to verify that everything is working well.  Please note that the ping test will only work if you have the right firmware currently running on the Captan board.  If no one else has downloaded the software, you will have to do it before you can try pinging the board.  
+Now we will try to connect to the captan board to verify that everything is working well.  Please note that the ping test will only work if you have the right firmware currently running on the Captan board.  If the FPGA board has not been flashed with a version of the firmware we are using, then this test will likely fail and you will have to flash the firmware before you can continue.  
 
 First, open Wireshark and start monitoring the connection with your captan board.  This will let us see everything being sent and received to the board.  Next, open the command line and type `ping 192.168.133.2` .  If you get a response, the board is working and you can connect to it. Go ahead and look at Wireshark.  You can see the ping requests and the responses from the captan board.
 
