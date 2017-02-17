@@ -10,6 +10,21 @@ To start out, we need to power up the board and ping it.  The powering part is p
 
 The default IP address for the ethernet module is 192.168.133.2 .  To connect to the board, we need to verify that we have the right settings for our computer.  To check these, go to: Network and Sharing Center => \<network with captan\> => properties => select IPv4 => properties.  The IP address in the IP address field should be something like: 192.168.133.199 . You can choose the last number just as long as it isn't 2.  The subnet mask should be set to 255.255.255.0 . Once everything is right, click OK.  
 
+## Flashing Firmware
+
+Before we go any further, we need to know that the right firmware has been flashed to the board.  We will flash the firmware using the JTag connector from Xilinx.  The JTag socket on the Captan board is right by the power connector.  Once the Jtag cable is placed, we are good to go.  
+
+There are two ways to flash the firmware to the captan board.  To get a good idea about the differences between the two, it is helpful to knowy a little bit more about FPGAs.  On startup, the FPGA will lay out the ligic circuit that is contained in an external flash memory.  If you program this external flash memory, the circuit will be persistent through a power cycle.  While the FPGA is on, it can be programmed through the JTag connector.  The FPGA will write the circuit, but it will not be stored in the flash memory.  Because of this, the logic circuit will revert to whatever circuit is written in the flash memory after a power cycle.  
+
+There are two different programs to use when flashing firmware to the Captan.  The first uses ChipScope which is normally used for looking at signals inside the FPGA while it is running.  ChipScope can only be used to temporarily flash firmware to the FPGA while The second method, iMPACT, can be used for both.  Impact is a more dedicated piece of software meant for flashing firmware to Xilinx chips.  
+### ChipScope
+
+TODO
+
+### iMPACT
+
+TODO
+
 ## Ping Test
 
 Now we will try to connect to the captan board to verify that everything is working well.  Please note that the ping test will only work if you have the right firmware currently running on the Captan board.  If the FPGA board has not been flashed with a version of the firmware we are using, then this test will likely fail and you will have to flash the firmware before you can continue.  
@@ -18,7 +33,7 @@ First, open Wireshark and start monitoring the connection with your captan board
 
 If the ping test does not work, check your connections and IP addresses.  If that does not work, the next thing to try is flashing the firmware to the FPGA.  
 
-##Setting up the Control Software
+## Setting up the Control Software
 
 Now that we can connect to the captan board, we need to set up the control software which makes it easier to control the captan board.  The windows software can be downloaded from the resources folder.  
 
