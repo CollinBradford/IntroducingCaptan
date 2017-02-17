@@ -61,11 +61,11 @@ Now that we can connect to the captan board, we need to set up the control softw
 
 The software comes in three parts: captan master, captan controller, and captan gui.  This makes it easy to control multiple captan boards on multiple computers all on the same network.  They each need to be started in order with different settings.  I will walk you through them here.  
 
-#### Captan Master
+### Captan Master
 
 1. Launch the application. (captan_software_1_8_1\CAPTAN_SOFTWARE_\CAPTAN_Global_Master\CAPTAN_Global_Master) 
 
-#### Captan Controller
+### Captan Controller
 
 1. Launch application. (captan_software_1_8_1\CAPTAN_SOFTWARE_\CAPTAN_Controller\CAPTAN_Subnet_Master)
 2. In the Global Master IP field put the IP address of your computer (or of the computer running the global master software.  For the purpose of this tutorial, this should be your computer.  )
@@ -78,7 +78,7 @@ The software comes in three parts: captan master, captan controller, and captan 
   
 If the connections return errors, double check the addresses and make sure that the global master software is running.  If it cannot connect with the captan board, try pinging it to make sure everything is working.  If that doesn't work, reset the board using the onboard reset button located just to the outside of the J3 connector.  
 
-#### Captan GUI
+### Captan GUI
 
 1. Launch application.  (captan_software_1_8_1\CAPTAN_SOFTWARE_\CAPTAN_Gui\CAPTAN_Gui)
 2. In the Global Master IP field, put the IP address of your computer (or whatever computer the global master software is running on).
@@ -86,11 +86,12 @@ If the connections return errors, double check the addresses and make sure that 
 4. Select the captan board from the list.  The name of the board can be found from the captan controller software by looking at the text field labeled "CAPTAN Controller Alias".
 5. You should see a line on the console in the bottom left corner that says "Connected as Master".  
 
-#### Setting Registers
+## Setting Registers
 
-Alright, we have all that setup done.  Let's set some registers.  Go to the web resource for the address space. It's the second resource at the bottom of the page.  This defines the address space in the ethernet module and says what each register does.  Now, open wireshark so we can see what's going on behind the scenes.  Once everything is setup, we are going to read from the version register.  On the address space page, it's the second to last one with the field name "ETH_INTERFACE_VERSION".  We see that it is in block one at address 64.  To read from this register, go to the captan gui application.  On the right side of the page in the Basic Commands tab under CAPTAN Controls there is a an address field.  Type in the block number and the address so it says "0000000100000064".  Click Read.  In the console window, it should print the data that was read from the captan board.  Open wireshark and look at the recent transmissions.  There should be two UDP packages in addition to all the other stuff.  One should be from your computer to the captan board, the other from the captan board to the computer.  If you open these and look at the data, you will see what was transmitted to the board and what it sent back.  
+From here on out, most of the setup should be done.  As a last check to make sure everything is verified, it is a good idea to set some registers in the FPGA.  To do this, open the Captan GUI application and select the name of your captan board from the menue on the left.  In the bottom left corner of the window, there shold be a field for the address space, and one for the data.  The address space resource below gives the address space for the etherner interface on the captan board.  The block number and address both go in the address space, and, if writing data, the data goes in the data field.  For example, to read the firmware verison, type 0000000100000064 into the address space and click read.  The result shoudl show up in hex in the console in the bottom left part of the window.  
 
-Now, we are going to set the burst_mode register and read it back.  Change the address to reflect this register "0000000100000064" and put 1 in the data field.  Write the value and then read it back.  In the console you should receive a one back.  Change the one back to a zero and repeat the process and the register should change back to a zero.  
+![alt text](https://github.com/CollinBradford/IntroducingCaptan/blob/master/ConnectingEverything/Images/Captan%20GUI.png "Captan GUI")
+
 
 ### Resources
 
