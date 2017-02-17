@@ -19,11 +19,15 @@ There are two ways to flash the firmware to the captan board.  To get a good ide
 There are two different programs to use when flashing firmware to the Captan.  The first uses ChipScope which is normally used for looking at signals inside the FPGA while it is running.  ChipScope can only be used to temporarily flash firmware to the FPGA while The second method, iMPACT, can be used for both.  Impact is a more dedicated piece of software meant for flashing firmware to Xilinx chips.  
 ### ChipScope
 
-TODO
+ChipScope is a logic analyzer meant for visualizing signals inside of the FPGA during runtime.  However, there is a convienient little feature that lets you program the FPGA for testing.  You cannot use ChipScope to program the flash memory.  To program the FPGA using ChipScope, ensure that your JTag connector is plugged in and that your device is powered on, and open the ChipScope analyzer. In the top left corner of the window, click the "open cable" button.  
+
+![alt text](https://github.com/CollinBradford/IntroducingCaptan/blob/master/ConnectingEverything/Images/Open_Cable.png "Open Cable")
+
+This results in a window that displays the devices connected to the JTag connection.  Select the FPGA from the list.  Next, from the top menue, select Device=>\<your device\>=>Configure.  This will open a window that allows you to select the bit file and CDC file.  The bit file will normally be in the same directory as your FPGA project.  You have the opportunity to import the CDC file asscociated with the pgoject, but it is not nessassary.  Importing it helps by naming all the signals you are analyzing.  Press the "OK" button, and ChipScope will flash the FPGA.  
 
 ### iMPACT
 
-TODO
+
 
 ## Ping Test
 
