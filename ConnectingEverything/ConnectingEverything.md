@@ -27,7 +27,7 @@ This results in a window that displays the devices connected to the JTag connect
 
 ### iMPACT
 
-
+iMPACT is useful for flashing fimrware when you want to program the flash memory as well as the FPGA itself.  To use iMPACT, first ensure that your device is powered on and connected to the JTag cable and launch iMPACT.  In the left side menue, double click the top option titled "Boundry Scan"  
 
 ## Ping Test
 
