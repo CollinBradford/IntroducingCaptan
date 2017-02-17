@@ -27,7 +27,25 @@ This results in a window that displays the devices connected to the JTag connect
 
 ### iMPACT
 
-iMPACT is useful for flashing fimrware when you want to program the flash memory as well as the FPGA itself.  To use iMPACT, first ensure that your device is powered on and connected to the JTag cable and launch iMPACT.  In the left side menue, double click the top option titled "Boundry Scan"  
+iMPACT is useful for flashing fimrware when you want to program the flash memory as well as the FPGA itself.  To use iMPACT, first ensure that your device is powered on and connected to the JTag cable and launch iMPACT.  In the left sidemenue, select "Boundry Scan."  In the top toolbar, click the "Open Chain" button.  After everything loads, the main area of the iMPACT window should populate with a representation of all the devices connected to the JTag connection.  They should be labeled with different logos depending on the device.  For the Captan board, the first device should be the flash memory, and the second device will be labvedled "V4" for Vertex 4.  
+
+![alt text](https://github.com/CollinBradford/IntroducingCaptan/blob/master/ConnectingEverything/Images/iMPACT%20Main%20Window.png "iMPACT Main Window")
+
+#### Flashing FPGA
+
+To program the FGPA, select the device icon from the boundry scan and click the "Assign New Configuration File" button from the toolbar at the top.  A file viewer will open where you can select the bit file.  Once this is selected, from the lower left menue, double click "Program" and it should progrma the FPGA.  
+
+#### Programming Flash Memory
+
+To progrma the flash memory, we have to create a PROM file using the bit file we already have.  From the top left menue, double click "Create PROM File."  A window should open allowing you to create the file in three steps.  First, select "Xilinx Flash/PROM" and hit the green arrow.  Second, add the storage device by selecting "Platform Flash" and "xcf32p [32M]" from the dropdown menues and click "Add Storage Device".  Lastly, change the title of the PROM file and select the location to put it.  At this point, your window should look something like this: 
+
+![alt text](https://github.com/CollinBradford/IntroducingCaptan/blob/master/ConnectingEverything/Images/PROM%20Generator.PNG "PROM File Generator Window")
+
+After selecting "OK," you will be greeted with a window instructing you to add files.  Click "OK," and select your bit file from the file menue.  This is the only file we need to add.  All we have to do now, is go to the bottom left menue and double click "Generate File."  
+
+After going back to the boundry scan, select the first device, the flash memory device, and click the "Assign New Configuration File" and select the PROM file you just made.  From the bottom left menue, double click Program, and it should program the flash memory.  
+
+IMPORTANT: The FPGA will NOT run the newly programmed file automatically!  You must power cycle the FPGA for it to use the new configuration file!  
 
 ## Ping Test
 
