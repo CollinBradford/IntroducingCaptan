@@ -1,3 +1,11 @@
+# Running the Project
+
+This file should include enough information to run the project for the first time after the development environment has been successfully set up. 
+
+## Signal
+
+I'm admittedly not very good with routing signals, however, I can tell you that the signal should be routed through the little LMH6555 evaluation board.  The signal needs to come in the IN+ side.  The IN- side needs to be connected to a 50 ohm terminator.  The positive output and negative output signals should be connected to the ports VIN_I+ and VIN_I- on the blue Captan board.  The LMH board needs to be powered with 3v3.  Also, a reference voltage of about 1v should be applied to the Vcm connector.  The signal going to the ADC should not exceed -0.15 to 2.5V as per the ADC's datasheet.
+
 ## Software
 
 Once the board is powered on, the Captan control software should be launched in accordance with the instructions in the "Setting Everything Up" tutorial.  In addition to the Captan software, the Python script for receiving the data should be started.  The Python script should take you through a few setup commands and then start taking data one window at a time.  These setup commands can be run by simply pressing enter.  Skipping any command can be accomplished by pressing 's' before running the command.  To exit the application, type e before a command, and to set the software to take data continuously, simply press 'c' before running any command.  
@@ -27,4 +35,6 @@ T = Trigger level.  This is the level at which the samples are compared with.  A
  T = 40 (64 decimal) - When the signal reaches 64, it will trigger a read operation.  
 
  At these settings, the FPGA will analyse the signal until it reaches 65.  At this point, 296 samples will be recorded.  They will be sent off in groups of 4 with 32 clock cycles between each group.  
+
+
 
