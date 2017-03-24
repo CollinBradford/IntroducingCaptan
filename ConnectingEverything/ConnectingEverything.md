@@ -1,4 +1,4 @@
-# Getting Started With OtS Ethernet Interface
+# Connecting Everything
 
 In this tutorial we will begin learning how to interface with our FPGA through the OtS Ethernet Interface.  
 
