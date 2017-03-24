@@ -1,8 +1,8 @@
-#Getting Started With OtS Ethernet Interface
+# Getting Started With OtS Ethernet Interface
 
 In this tutorial we will begin learning how to interface with our FPGA through the OtS Ethernet Interface.  
 
-##Setting Everything Up  
+## Setting Everything Up  
 
 To start out, we need to power up the board and ping it.  The powering part is pretty basic.  3.3v to the power connector near the JTag connector.  Keep in mind that the basic project runs at around 3 amps so not any simple power supply will work.  Once the board is powered, some of the lights on the ethernet interface chip should light up.  
 
