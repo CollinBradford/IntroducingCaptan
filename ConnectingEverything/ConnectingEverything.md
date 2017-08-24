@@ -12,7 +12,7 @@ The default IP address for the ethernet module is 192.168.133.2 .  To connect to
 
 ## Flashing Firmware
 
-To connect to the FPGA to flash firmware, you need to use a USB to JTag cable.  Xilinx sells one called the Platform Cable USB II that works really well.  
+To connect to the FPGA to flash firmware, you need to use a USB to JTag cable.  Xilinx sells one called the Platform Cable USB II that works really well.  You also need to install the ISE Design Suite from Xilinx that can be found at the bottom of the page in the resources section. Note:  The ISE Design Suite has several different editions with different costs and licenses.  You need only get the WebPACK edition which comes at no cost.  
 
 There are two ways to flash the firmware to the captan board.  To get a good idea about the differences between the two, it is helpful to know a little bit more about FPGAs.  On startup, the FPGA will lay out the logic circuit that is contained in an external flash memory.  If you program this external flash memory, the circuit will be persistent through a power cycle.  While the FPGA is on, it can be programmed through the JTag connector.  The FPGA will write the circuit, but it will not be stored in the flash memory.  Because of this, the logic circuit will revert to whatever circuit is written in the flash memory after a power cycle.  
 
@@ -92,5 +92,6 @@ From here on out, most of the setup should be done.  As a last check to make sur
 
 1. OtS Ethernet Interface User's Guide:  https://docs.google.com/document/d/1i3Z07n8Jq78NwgUFdjAv2sLGhH4rWjHeYEScAWBzSyw/edit
 2. OtS Interface Address Space:  http://otsdaq.fnal.gov/docs/oei_address_space.html
+3. Xilinx ISE Design Suite: https://www.xilinx.com/products/design-tools/ise-design-suite.html
 
 
