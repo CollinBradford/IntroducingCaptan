@@ -48,16 +48,6 @@ This page mainly deals with the various clock signals.  The top half contains th
 
 These are just the input and output buffers.  This is a good way to find out the pin location of any input and output signals named in the firmware.  
 
-## ChipScope
-
-The ChipScope core is used for analyzing signals.  The signals being analyzed can be edited through the ChipScope Core Inserter by double clicking the ChipScope file in the project explorer.  Opening the Inserter can take a while sometimes as the project has to be synthesized first.  
-
-Once the window is open, click next until you get to the "Trigger Parameters" tab.  If you are going to be adding signals, increase the trigger width.  Otherwise, continue to the "Net Connections" tab.  Click on "Modify Connections".  You will be presented with the Net selections window.  The space on the left of the windows allows you to select different signals and you can place them into the core with the controls on the right side of the window.  
-
-To add a new signal, select "Trigger/Data Signals" on the right, find an empty signal space, select the new signal on the left, and click "Make Connections."
-
-To remove a signal, find it on the right, select it, and click "Remove Connections." You will then have to select all the signals below it and click "Move Nets Up" until the space is filled.  After the signal has been removed, go back to the "Trigger Parameters" tab in the Core Inserter window and edit the trigger width to match the new number of signals.  Please note that the table in the the signal selections window is zero indexed and the trigger width parameter is not, so you will have to add one to the signal number in the signal editor to match the true number of signals.  
-
 ## TOP_LEVEL.ucf
 
 The constraints file defines the pins that are used in the firmware.  Most of the pins should already be defined, but most of them are commented out and unused.  Should you need to use an extra pin, uncomment it here, add an IBUF or OBUF on page 5, and give it a proper signal name to be used in the firmware. 
